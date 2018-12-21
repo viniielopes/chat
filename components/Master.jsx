@@ -7,14 +7,25 @@ import {
 } from "@material-ui/core";
 import { MdMenu } from "react-icons/md";
 import Link from "next/link";
+import { MenuLateralConsumer } from "~/components/Contexts/MenuLateralProvider";
+import MenuLateral from "~/components/MenuLateral";
 
 const Master = () => (
   <>
     <AppBar position="sticky" id="AppBar">
       <Toolbar variant="regular" className="Toolbar">
-        <IconButton color="inherit" aria-label="Menu" id="btnMenu">
-          <MdMenu />
-        </IconButton>
+        <MenuLateralConsumer>
+          {(context) => (
+            <IconButton
+              color="inherit"
+              aria-label="Menu"
+              id="btnMenu"
+              onClick={context.abrirMenu}
+            >
+              <MdMenu />
+            </IconButton>
+          )}
+        </MenuLateralConsumer>
 
         <div id="botoesNavBar">
           <Link href="/index" as="/">
@@ -32,6 +43,7 @@ const Master = () => (
       </Toolbar>
     </AppBar>
 
+    <MenuLateral />
     <style jsx="true">{`
       .Toolbar {
         display: flex;

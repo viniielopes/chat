@@ -7,6 +7,7 @@ import getPageContext from "../src/getPageContext";
 import NProgress from "nprogress";
 import Router from "next/router";
 import Master from "../components/Master";
+import MenuLateralProvider from "~/components/Contexts/MenuLateralProvider";
 
 NProgress.configure({
   showSpinner: false,
@@ -66,12 +67,15 @@ class MyApp extends App {
             theme={this.pageContext.theme}
             sheetsManager={this.pageContext.sheetsManager}
           >
-            <Master />
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             {/* Pass pageContext to the _document though the renderPage enhancer
                 to render collected styles on server side. */}
-            <Component pageContext={this.pageContext} {...pageProps} />
+
+            <MenuLateralProvider>
+              <Master />
+              <Component pageContext={this.pageContext} {...pageProps} />
+            </MenuLateralProvider>
           </MuiThemeProvider>
         </JssProvider>
       </Container>
