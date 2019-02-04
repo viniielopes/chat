@@ -34,9 +34,9 @@ const Master = () => (
             </Button>
           </Link>
 
-          <Link href="/teste">
+          <Link href="/chat">
             <Button variant="contained" color="secondary">
-              <a>Segunda tela</a>
+              <a>Chat</a>
             </Button>
           </Link>
         </div>
@@ -54,7 +54,7 @@ const Master = () => (
       #botoesNavBar {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 14rem;
       }
     `}</style>

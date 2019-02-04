@@ -22,7 +22,7 @@ class Inicio extends React.Component {
           <title>Login</title>
         </Head>
 
-        <form action="/teste" method="POST">
+        <form action="/chat" method="POST">
           <div className="container">
             <Typography variant="h2" gutterBottom>
               Entrar

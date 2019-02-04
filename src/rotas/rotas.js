@@ -10,16 +10,16 @@ import { DevServer } from "next";
 export const rotas = (ServerExpress, AppNext) => {
   const porta = process.env.PORT || 3000;
   const handle = AppNext.getRequestHandler();
-  
+
   ServerExpress.get("/", (req, res) => {
     AppNext.render(req, res, "/index");
   });
 
-  ServerExpress.get("/teste", (req, res) => {
-    AppNext.render(req, res, "/teste");
+  ServerExpress.get("/chat", (req, res) => {
+    AppNext.render(req, res, "/chat");
   });
 
-  ServerExpress.post("/teste", (req, res) => {
+  ServerExpress.post("/chat", (req, res) => {
     console.log("Olha o que chegou: ", req.body);
 
     const { txbNome: nome, txbSenha: senha } = req.body;
